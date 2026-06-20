@@ -1,0 +1,65 @@
+Table users {
+  id bigint [pk, increment]
+  username varchar [unique, not null]
+  password varchar [not null]
+  role varchar [not null]
+  farmer_id bigint [ref: - farmers.id]
+  created_at datetime
+  updated_at datetime
+}
+
+Table farmer_groups {
+  id bigint [pk, increment]
+  name varchar [not null]
+  village varchar [not null]
+  district varchar
+  description varchar
+  created_at datetime
+  updated_at datetime
+}
+
+Table farmers {
+  id bigint [pk, increment]
+  full_name varchar [not null]
+  phone varchar [not null]
+  address varchar [not null]
+  farmer_group_id bigint [ref: > farmer_groups.id]
+  created_at datetime
+  updated_at datetime
+}
+
+Table commodities {
+  id bigint [pk, increment]
+  name varchar [unique, not null]
+  category varchar [not null]
+  unit varchar [not null]
+  created_at datetime
+  updated_at datetime
+}
+
+Table farmer_group_commodities {
+  farmer_group_id bigint [ref: > farmer_groups.id]
+  commodity_id bigint [ref: > commodities.id]
+}
+
+Table stocks {
+  id bigint [pk, increment]
+  farmer_id bigint [ref: > farmers.id]
+  commodity_id bigint [ref: > commodities.id]
+  quantity decimal [not null]
+  harvest_date date [not null]
+  location varchar
+  created_at datetime
+  updated_at datetime
+}
+
+Table distributions {
+  id bigint [pk, increment]
+  stock_id bigint [ref: > stocks.id]
+  quantity decimal [not null]
+  destination varchar [not null]
+  receiver_name varchar
+  distribution_date date [not null]
+  created_at datetime
+  updated_at datetime
+}
