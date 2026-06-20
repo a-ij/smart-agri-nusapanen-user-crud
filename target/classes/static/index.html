@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NusaPanen · Sistem Informasi Pertanian</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<svg class="svg-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="icon-dashboard" viewBox="0 0 24 24"><path d="M4 13h6V4H4v9Zm0 7h6v-5H4v5Zm10 0h6v-9h-6v9Zm0-16v5h6V4h-6Z"/></symbol>
+    <symbol id="icon-group" viewBox="0 0 24 24"><path d="M8 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm8.5 1a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7ZM2.5 21c.4-4.2 2.7-7 5.5-7s5.1 2.8 5.5 7h-11Zm11.3 0a9.3 9.3 0 0 0-2-5.2c1-.9 2.3-1.4 3.7-1.4 3 0 5.4 2.6 5.8 6.6h-7.5Z"/></symbol>
+    <symbol id="icon-farmer" viewBox="0 0 24 24"><path d="M12 13.5c-3.5 0-6.4 2.7-6.8 6.5h13.6c-.4-3.8-3.3-6.5-6.8-6.5Zm0-2.2a4 4 0 0 0 4-4V6.8h-8v.5a4 4 0 0 0 4 4ZM5.6 5.3C6.6 2.9 9 1.5 12 1.5s5.4 1.4 6.4 3.8c.2.5-.2 1-0.7 1H6.3c-.5 0-.9-.5-.7-1Z"/></symbol>
+    <symbol id="icon-leaf" viewBox="0 0 24 24"><path d="M20.8 3.2C12.8 3.6 7 7.5 5.4 13.6c-.4 1.5-.3 3 .2 4.2L3 20.4 4.6 22l2.5-2.5c1 .7 2.3 1 3.7.8 6.7-.9 9.9-8.2 10-17.1ZM8.2 17.2c2.4-3.7 5.3-6.5 9-8.6-2.3 2.8-4.7 5.6-7.7 9.2-.5-.1-.9-.3-1.3-.6Z"/></symbol>
+    <symbol id="icon-stock" viewBox="0 0 24 24"><path d="M4 7.5 12 3l8 4.5-8 4.5-8-4.5Zm0 2.5 7 4v7l-7-4v-7Zm16 0v7l-7 4v-7l7-4Z"/></symbol>
+    <symbol id="icon-distribution" viewBox="0 0 24 24"><path d="M4 7h11l3 4h2v6h-2a3 3 0 0 1-6 0H9a3 3 0 0 1-6 0H2V9a2 2 0 0 1 2-2Zm11 2v3h2.7L15.5 9H15ZM6 18.4A1.4 1.4 0 1 0 6 15.6a1.4 1.4 0 0 0 0 2.8Zm9 0a1.4 1.4 0 1 0 0-2.8 1.4 1.4 0 0 0 0 2.8Z"/></symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24"><path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm-8 9c.4-4.5 3.6-7.5 8-7.5s7.6 3 8 7.5H4Z"/></symbol>
+    <symbol id="icon-refresh" viewBox="0 0 24 24"><path d="M17.7 6.3A8 8 0 1 0 20 12h-2a6 6 0 1 1-1.8-4.2L13 11h8V3l-3.3 3.3Z"/></symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24"><path d="M7 10V8a5 5 0 0 1 10 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h1Zm2 0h6V8a3 3 0 0 0-6 0v2Z"/></symbol>
+    <symbol id="icon-seed" viewBox="0 0 24 24"><path d="M12 21c-3.5-2.6-5.5-5.7-5.5-8.7 0-3.6 2.8-6.8 5.5-9.3 2.7 2.5 5.5 5.7 5.5 9.3 0 3-2 6.1-5.5 8.7Zm0-4.2c2.2-1.8 3.4-3.6 3.4-5.4 0-1.6-1-3.4-3.4-5.8-2.4 2.4-3.4 4.2-3.4 5.8 0 1.8 1.2 3.6 3.4 5.4Z"/></symbol>
+</svg>
+
+<main id="login-page" class="login-shell">
+    <section class="login-hero-card">
+        <header class="login-header">
+            <div class="brand-lockup">
+                <span class="brand-symbol"><svg><use href="#icon-seed"></use></svg></span>
+                <div>
+                    <strong>NusaPanen</strong>
+                    <small>Sistem Informasi Pertanian</small>
+                </div>
+            </div>
+            <span class="header-pill">Ketahanan Pangan</span>
+        </header>
+
+        <div class="login-grid">
+            <article class="welcome-copy">
+                <span class="eyebrow">Smart Community System</span>
+                <h1>Dashboard pertanian yang rapi untuk data, stok, distribusi, dan user role.</h1>
+                <p class="lead-text">Kelola operasional pertanian dari satu aplikasi browser yang terhubung langsung ke REST API Spring Boot dan database.</p>
+
+                <div class="visual-board" aria-label="Ilustrasi panel pertanian">
+                    <div class="map-card large">
+                        <span>Stok pangan</span>
+                        <strong>Monitoring</strong>
+                        <div class="progress-line"><i style="width: 72%"></i></div>
+                    </div>
+                    <div class="map-card small top">
+                        <svg><use href="#icon-group"></use></svg>
+                        <span>Kelompok tani</span>
+                    </div>
+                    <div class="map-card small bottom">
+                        <svg><use href="#icon-distribution"></use></svg>
+                        <span>Distribusi</span>
+                    </div>
+                </div>
+
+                <div class="feature-row">
+                    <div><svg><use href="#icon-leaf"></use></svg><span>Komoditas</span></div>
+                    <div><svg><use href="#icon-stock"></use></svg><span>Stok</span></div>
+                    <div><svg><use href="#icon-lock"></use></svg><span>Role Based</span></div>
+                </div>
+            </article>
+
+            <article class="login-panel">
+                <div class="login-panel-icon"><svg><use href="#icon-lock"></use></svg></div>
+                <h2>Masuk Sistem</h2>
+                <p>Gunakan akun yang sudah terdaftar untuk mengakses dashboard.</p>
+                <form id="login-form" class="stack-form">
+                    <label>Username
+                        <input id="login-username" type="text" autocomplete="username" placeholder="Masukkan username" required>
+                    </label>
+                    <label>Password
+                        <input id="login-password" type="password" autocomplete="current-password" placeholder="Masukkan password" required>
+                    </label>
+                    <button class="primary-btn full" type="submit">Masuk Dashboard</button>
+                    <p id="login-message" class="form-message"></p>
+                </form>
+            </article>
+        </div>
+    </section>
+</main>
+
+<main id="app-page" class="app-page hidden">
+    <aside class="sidebar">
+        <div class="brand">
+            <span class="brand-symbol compact"><svg><use href="#icon-seed"></use></svg></span>
+            <div>
+                <h3>NusaPanen</h3>
+                <span>Agri Management</span>
+            </div>
+        </div>
+
+        <nav class="module-nav" aria-label="Navigasi dashboard">
+            <button class="nav-link active" data-section="dashboard"><svg class="icon"><use href="#icon-dashboard"></use></svg><span>Dashboard</span></button>
+            <button class="nav-link" data-section="groups"><svg class="icon"><use href="#icon-group"></use></svg><span>Kelompok Tani</span></button>
+            <button class="nav-link" data-section="farmers"><svg class="icon"><use href="#icon-farmer"></use></svg><span>Petani</span></button>
+            <button class="nav-link" data-section="commodities"><svg class="icon"><use href="#icon-leaf"></use></svg><span>Komoditas</span></button>
+            <button class="nav-link" data-section="stocks"><svg class="icon"><use href="#icon-stock"></use></svg><span>Stok Pangan</span></button>
+            <button class="nav-link" data-section="distributions"><svg class="icon"><use href="#icon-distribution"></use></svg><span>Distribusi</span></button>
+            <button class="nav-link" data-section="users"><svg class="icon"><use href="#icon-user"></use></svg><span>User & Role</span></button>
+        </nav>
+
+        <div class="sidebar-footer">
+            <span id="user-chip">user</span>
+            <button id="logout-btn" class="ghost-btn">Keluar</button>
+        </div>
+    </aside>
+
+    <section class="content">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">Panel Operasional</p>
+                <h1 id="page-title">Dashboard</h1>
+            </div>
+            <button id="refresh-btn" class="secondary-btn"><svg class="btn-icon"><use href="#icon-refresh"></use></svg>Refresh Data</button>
+        </header>
+
+        <section id="dashboard" class="page-section active-section">
+            <article class="dashboard-hero">
+                <div>
+                    <span class="hero-label">Ringkasan Ketahanan Pangan</span>
+                    <h2>Pantau data tani dan ketersediaan pangan dari satu halaman.</h2>
+                    <p>Dashboard ini menampilkan jumlah master data, stok tersedia, serta monitoring komoditas untuk membantu pengambilan keputusan.</p>
+                </div>
+                <div class="hero-metric">
+                    <svg><use href="#icon-seed"></use></svg>
+                    <span>Status Sistem</span>
+                    <strong>Aktif</strong>
+                    <small>Frontend dan API siap digunakan</small>
+                </div>
+            </article>
+
+            <div class="stat-grid">
+                <article class="stat-card"><div class="stat-icon"><svg><use href="#icon-group"></use></svg></div><span>Kelompok Tani</span><strong id="stat-groups">0</strong><small>unit kelompok</small></article>
+                <article class="stat-card"><div class="stat-icon"><svg><use href="#icon-farmer"></use></svg></div><span>Petani</span><strong id="stat-farmers">0</strong><small>anggota terdata</small></article>
+                <article class="stat-card"><div class="stat-icon"><svg><use href="#icon-leaf"></use></svg></div><span>Komoditas</span><strong id="stat-commodities">0</strong><small>jenis pangan</small></article>
+                <article class="stat-card"><div class="stat-icon"><svg><use href="#icon-stock"></use></svg></div><span>Stok Tersedia</span><strong id="stat-available">0</strong><small>akumulasi stok</small></article>
+            </div>
+
+            <div class="grid-two dashboard-grid">
+                <article class="panel wide">
+                    <div class="panel-header">
+                        <div>
+                            <h2>Monitoring Ketersediaan Pangan</h2>
+                            <p class="muted">Total stok, distribusi, dan sisa ketersediaan per komoditas.</p>
+                        </div>
+                        <span class="pill">API Data</span>
+                    </div>
+                    <div id="monitoring-cards" class="monitor-grid"></div>
+                </article>
+                <article class="panel guide-panel">
+                    <h2>Alur Pengisian Data</h2>
+                    <ol class="steps">
+                        <li><span>01</span> Isi data komoditas.</li>
+                        <li><span>02</span> Tambah kelompok tani.</li>
+                        <li><span>03</span> Daftarkan petani.</li>
+                        <li><span>04</span> Catat stok hasil panen.</li>
+                        <li><span>05</span> Input distribusi pangan.</li>
+                    </ol>
+                </article>
+            </div>
+        </section>
+
+        <section id="groups" class="page-section">
+            <div class="crud-layout">
+                <article class="panel form-panel">
+                    <div class="form-title-row"><span class="section-icon"><svg><use href="#icon-group"></use></svg></span><h2 id="group-form-title">Tambah Kelompok Tani</h2></div>
+                    <form id="group-form" class="stack-form">
+                        <label>Nama kelompok<input name="name" required placeholder="Kelompok Tani Makmur"></label>
+                        <label>Desa<input name="village" required placeholder="Cibiru"></label>
+                        <label>Kecamatan / Kabupaten<input name="district" placeholder="Bandung"></label>
+                        <label>Deskripsi<textarea name="description" placeholder="Keterangan kelompok tani"></textarea></label>
+                        <label>Komoditas yang dikelola<select name="commodityIds" multiple size="4"></select><small class="field-help">Tekan Ctrl untuk memilih lebih dari satu.</small></label>
+                        <div class="form-actions"><button class="primary-btn" type="submit">Simpan</button><button class="ghost-btn" type="button" data-reset="group">Batal Edit</button></div>
+                    </form>
+                </article>
+                <article class="panel table-panel">
+                    <div class="panel-header"><h2>Data Kelompok Tani</h2><span class="pill">Master</span></div>
+                    <div class="table-wrap"><table><thead><tr><th>ID</th><th>Nama</th><th>Wilayah</th><th>Komoditas</th><th>Aksi</th></tr></thead><tbody id="groups-table"></tbody></table></div>
+                </article>
+            </div>
+        </section>
+
+        <section id="farmers" class="page-section">
+            <div class="crud-layout">
+                <article class="panel form-panel">
+                    <div class="form-title-row"><span class="section-icon"><svg><use href="#icon-farmer"></use></svg></span><h2 id="farmer-form-title">Tambah Petani</h2></div>
+                    <form id="farmer-form" class="stack-form">
+                        <label>Nama lengkap<input name="fullName" required placeholder="Dedi Supriadi"></label>
+                        <label>No. telepon<input name="phone" required placeholder="081234567890"></label>
+                        <label>Alamat<textarea name="address" required placeholder="Alamat petani"></textarea></label>
+                        <label>Kelompok tani<select name="farmerGroupId" required></select></label>
+                        <div class="form-actions"><button class="primary-btn" type="submit">Simpan</button><button class="ghost-btn" type="button" data-reset="farmer">Batal Edit</button></div>
+                    </form>
+                </article>
+                <article class="panel table-panel">
+                    <div class="panel-header"><h2>Data Petani</h2><span class="pill">Anggota</span></div>
+                    <div class="table-wrap"><table><thead><tr><th>ID</th><th>Nama</th><th>Telepon</th><th>Kelompok</th><th>Aksi</th></tr></thead><tbody id="farmers-table"></tbody></table></div>
+                </article>
+            </div>
+        </section>
+
+        <section id="commodities" class="page-section">
+            <div class="crud-layout">
+                <article class="panel form-panel">
+                    <div class="form-title-row"><span class="section-icon"><svg><use href="#icon-leaf"></use></svg></span><h2 id="commodity-form-title">Tambah Komoditas</h2></div>
+                    <form id="commodity-form" class="stack-form">
+                        <label>Nama komoditas<input name="name" required placeholder="Beras Premium"></label>
+                        <label>Kategori<select name="category" required>
+                            <option value="PADI">PADI</option><option value="JAGUNG">JAGUNG</option><option value="SAYUR">SAYUR</option><option value="BUAH">BUAH</option><option value="UMBI">UMBI</option><option value="LAINNYA">LAINNYA</option>
+                        </select></label>
+                        <label>Satuan<input name="unit" required placeholder="kg / ton / ikat"></label>
+                        <div class="form-actions"><button class="primary-btn" type="submit">Simpan</button><button class="ghost-btn" type="button" data-reset="commodity">Batal Edit</button></div>
+                    </form>
+                </article>
+                <article class="panel table-panel">
+                    <div class="panel-header"><h2>Data Komoditas</h2><span class="pill">Pangan</span></div>
+                    <div class="table-wrap"><table><thead><tr><th>ID</th><th>Nama</th><th>Kategori</th><th>Satuan</th><th>Aksi</th></tr></thead><tbody id="commodities-table"></tbody></table></div>
+                </article>
+            </div>
+        </section>
+
+        <section id="stocks" class="page-section">
+            <div class="crud-layout">
+                <article class="panel form-panel">
+                    <div class="form-title-row"><span class="section-icon"><svg><use href="#icon-stock"></use></svg></span><h2 id="stock-form-title">Catat Stok Pangan</h2></div>
+                    <form id="stock-form" class="stack-form">
+                        <label>Petani<select name="farmerId" required></select></label>
+                        <label>Komoditas<select name="commodityId" required></select></label>
+                        <label>Jumlah<input name="quantity" type="number" min="0.01" step="0.01" required placeholder="100"></label>
+                        <label>Tanggal panen<input name="harvestDate" type="date" required></label>
+                        <label>Lokasi penyimpanan<input name="location" placeholder="Gudang Desa"></label>
+                        <div class="form-actions"><button class="primary-btn" type="submit">Simpan</button><button class="ghost-btn" type="button" data-reset="stock">Batal Edit</button></div>
+                    </form>
+                </article>
+                <article class="panel table-panel">
+                    <div class="panel-header"><h2>Data Stok Pangan</h2><span class="pill">Persediaan</span></div>
+                    <div class="table-wrap"><table><thead><tr><th>ID</th><th>Komoditas</th><th>Petani</th><th>Jumlah</th><th>Panen</th><th>Aksi</th></tr></thead><tbody id="stocks-table"></tbody></table></div>
+                </article>
+            </div>
+        </section>
+
+        <section id="distributions" class="page-section">
+            <div class="crud-layout">
+                <article class="panel form-panel">
+                    <div class="form-title-row"><span class="section-icon"><svg><use href="#icon-distribution"></use></svg></span><h2 id="distribution-form-title">Catat Distribusi</h2></div>
+                    <form id="distribution-form" class="stack-form">
+                        <label>Stok<select name="stockId" required></select></label>
+                        <label>Jumlah distribusi<input name="quantity" type="number" min="0.01" step="0.01" required placeholder="50"></label>
+                        <label>Tujuan<input name="destination" required placeholder="Pasar Desa"></label>
+                        <label>Penerima<input name="receiverName" placeholder="Bu Rina"></label>
+                        <label>Tanggal distribusi<input name="distributionDate" type="date" required></label>
+                        <div class="form-actions"><button class="primary-btn" type="submit">Simpan</button><button class="ghost-btn" type="button" data-reset="distribution">Batal Edit</button></div>
+                    </form>
+                </article>
+                <article class="panel table-panel">
+                    <div class="panel-header"><h2>Riwayat Distribusi</h2><span class="pill">Logistik</span></div>
+                    <div class="table-wrap"><table><thead><tr><th>ID</th><th>Komoditas</th><th>Jumlah</th><th>Tujuan</th><th>Tanggal</th><th>Aksi</th></tr></thead><tbody id="distributions-table"></tbody></table></div>
+                </article>
+            </div>
+        </section>
+
+        <section id="users" class="page-section">
+            <div class="crud-layout">
+                <article class="panel form-panel user-form-panel">
+                    <div class="form-title-row"><span class="section-icon"><svg><use href="#icon-user"></use></svg></span><h2 id="user-form-title">Tambah User</h2></div>
+                    <p class="muted">Kelola akun pengguna dan role akses aplikasi.</p>
+                    <form id="user-form" class="stack-form">
+                        <label>Username<input name="username" required placeholder="petugas1"></label>
+                        <label>Password<input name="password" type="password" placeholder="isi saat tambah / ganti password"></label>
+                        <label>Role<select name="role" required><option value="ROLE_ADMIN">ROLE_ADMIN</option><option value="ROLE_PETUGAS">ROLE_PETUGAS</option><option value="ROLE_PETANI">ROLE_PETANI</option></select></label>
+                        <label>Hubungkan ke petani opsional<select name="farmerId"><option value="">Tidak dihubungkan</option></select></label>
+                        <div class="form-actions"><button class="primary-btn" type="submit">Simpan</button><button class="ghost-btn" type="button" data-reset="user">Batal Edit</button></div>
+                    </form>
+                </article>
+                <article class="panel table-panel user-table-panel">
+                    <div class="panel-header"><h2>Data User & Role</h2><span class="pill">Admin Only</span></div>
+                    <div class="table-wrap"><table><thead><tr><th>ID</th><th>Username</th><th>Role</th><th>Petani Terhubung</th><th>Aksi</th></tr></thead><tbody id="users-table"></tbody></table></div>
+                </article>
+            </div>
+            <article class="panel role-note">
+                <div class="role-list">
+                    <div><strong>ROLE_ADMIN</strong><span>Kelola seluruh data dan akun pengguna.</span></div>
+                    <div><strong>ROLE_PETUGAS</strong><span>Kelola operasional stok dan distribusi.</span></div>
+                    <div><strong>ROLE_PETANI</strong><span>Akses data tani sesuai kebutuhan sistem.</span></div>
+                </div>
+            </article>
+        </section>
+    </section>
+</main>
+
+<div id="toast" class="toast hidden"></div>
+<script src="/app.js"></script>
+</body>
+</html>
